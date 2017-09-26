@@ -1,5 +1,3 @@
-const fs = require('fs')
-const util = require('util')
 const htmlparser = require('htmlparser2')
 
 function createParser(callbacks) {
