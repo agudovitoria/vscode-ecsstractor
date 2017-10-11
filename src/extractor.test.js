@@ -7,7 +7,10 @@ const extractor = new Extractor()
 const readFile = util.promisify(fs.readFile)
 
 test('extract class selectors', async t => {
-  const content = await readFile(`${process.cwd()}/testcases/list.html`, 'utf8')
+  const content = await readFile(
+    `${process.cwd()}/testcases/html/list.html`,
+    'utf8',
+  )
   const actual = extractor.extractClassSelectors(content)
 
   t.is(actual.length, 6)
@@ -17,7 +20,7 @@ test('extract class selectors', async t => {
 
 test('extract multiple class selectors', async t => {
   const content = await readFile(
-    `${process.cwd()}/testcases/multiple-classes.html`,
+    `${process.cwd()}/testcases/html/multiple-classes.html`,
     'utf8',
   )
   const actual = extractor.extractClassSelectors(content)
@@ -29,7 +32,10 @@ test('extract multiple class selectors', async t => {
 })
 
 test('extract id selectors', async t => {
-  const content = await readFile(`${process.cwd()}/testcases/id.html`, 'utf8')
+  const content = await readFile(
+    `${process.cwd()}/testcases/html/id.html`,
+    'utf8',
+  )
   const actual = extractor.extractIDSelectors(content)
 
   t.is(actual.length, 3)
